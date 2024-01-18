@@ -1,4 +1,4 @@
-FILEPATH = "C:/Users/chene/Desktop/python/to_do_list/todos.txt"
+FILEPATH = "todos.txt"
 
 
 def check_character(string, action, todos):
