@@ -9,7 +9,6 @@ if not os.path.exists("todos.txt"):
 st.set_page_config(layout="wide")
 todos = functions.get_todos()
 
-st.set_page_config(layout="wide")
 
 def add_todo():
     todo_local = st.session_state["new_todo"]
