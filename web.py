@@ -6,7 +6,7 @@ if not os.path.exists("todos.txt"):
     with open("todos.txt", "w") as file:
         pass
 
-
+st.set_page_config(layout="wide")
 todos = functions.get_todos()
 
 
@@ -20,14 +20,16 @@ def add_todo():
 
 st.title("My Todo App")
 st.subheader("This is my todo app.")
-st.write("This app is to increase your productivity.")
+st.write("This app is to increase your <b>productivity</b>.",
+         unsafe_allow_html=True)
 
 for index, todo in enumerate(todos):
-    checkbox = st.checkbox(todo, key=todo)
+    key= f"{index}-todo"
+    checkbox = st.checkbox(todo, key=key)
     if checkbox:
         todos.pop(index)
         functions.write_todos(todos)
-        del st.session_state[todo]
+        del st.session_state[key]
         st.experimental_rerun()
 
 st.text_input(label=" ", placeholder="Add new todo...",
